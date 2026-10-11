@@ -1159,13 +1159,19 @@ function RayfieldLibrary:CreateWindow(Settings)
 	AddDraggingFunctionality(Topbar,Main)
 
 	for _, TabButton in ipairs(TabList:GetChildren()) do
-		if TabButton.ClassName == "Frame" and TabButton.Name ~= "Placeholder" then
-			TabButton.BackgroundTransparency = 1
-			TabButton.Title.TextTransparency = 1
+	if TabButton.ClassName == "Frame" and TabButton.Name ~= "Placeholder" then
+		TabButton.BackgroundTransparency = 1
+		TabButton.Title.TextTransparency = 1
+		if TabButton:FindFirstChild("Shadow") then
 			TabButton.Shadow.ImageTransparency = 1
+		end
+		if TabButton:FindFirstChild("Image") then
 			TabButton.Image.ImageTransparency = 1
+		end
+		if TabButton:FindFirstChild("UIStroke") then
 			TabButton.UIStroke.Transparency = 1
 		end
+	end
 	end
 
 	Notifications.Template.Visible = false
